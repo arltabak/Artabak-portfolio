@@ -38,7 +38,14 @@
 
 
 <article class="prose">
-  <h2>Overview</h2>
+  <h2>Results</h2>
+  <ul>
+    <li>Converted &plusmn;0.5625&nbsp;mm of linear input into up to about 29&deg; of rotation in each direction.</li>
+    <li>The multi-material design performed best: the 392&nbsp;&micro;m version came within 6&ndash;9% of simulation, compared with 23&ndash;29% for the all-flexible base.</li>
+    <li>Selected a 308&nbsp;&micro;m flexure thickness as the starting point for the robot.</li>
+  </ul>
+
+  <h2>Motivation</h2>
   <p>Piezoelectric actuators are fast and precise, but they only move fractions of a millimeter. To power a small robot, that motion has to become large rotation, and gears or pinned linkages are hard to build at this size.
      This project designed a compliant transmission that does the conversion through flexing material alone, so it can be 3D printed in one piece. It became the core mechanism of my <a href="millimeter-scale-robot.html">millimeter-scale robot</a>.</p>
   <figure class="inline-fig">
@@ -48,6 +55,16 @@
 
   <h2>My role</h2>
   <p>As an undergraduate research assistant in York University's Responsive Materials &amp; Robotics Laboratory, I designed, modeled, fabricated and tested the transmission. The goal was to make millimeter-scale robots cheaper and simpler to build. The work led to my Master's thesis, and I presented it as first author at the 2022 IEEE/ASME AIM conference in Sapporo.</p>
+  <p class="skills-label"><strong>Skills</strong></p>
+  <ul class="skill-list">
+    <li>Finite element analysis: non-linear, frequency response and dynamic (ABAQUS)</li>
+    <li>Custom beam-element FE code (MATLAB)</li>
+    <li>Design optimization and parameter studies</li>
+    <li>Compliant mechanisms and monolithic design</li>
+    <li>Rapid prototyping: PolyJet and FDM printing</li>
+    <li>Experimental testing and optical measurement</li>
+    <li>CAD</li>
+  </ul>
 
   <h2>Approach</h2>
   <ul>
@@ -57,13 +74,6 @@
     <li><strong>Prototypes:</strong> printed versions with 196, 308 and 392&nbsp;&micro;m flexures in flexible Agilus30 (PolyJet).</li>
     <li><strong>Testing:</strong> drove each prototype from a micrometer stage across &plusmn;0.5625&nbsp;mm and measured rotation optically from overhead images in MATLAB, with under 1% measurement error.</li>
     <li><strong>Revision:</strong> redesigned as a multi-material part, with rigid VeroWhite encasing the flexible flexures to reduce the risk of material separation during cleaning, then retested on a motorized stage.</li>
-  </ul>
-
-  <h2>Results</h2>
-  <ul>
-    <li>Converted &plusmn;0.5625&nbsp;mm of linear input into up to about 29&deg; of rotation in each direction.</li>
-    <li>The multi-material design performed best: the 392&nbsp;&micro;m version came within 6&ndash;9% of simulation, compared with 23&ndash;29% for the all-flexible base.</li>
-    <li>Selected a 308&nbsp;&micro;m flexure thickness as the starting point for the robot.</li>
   </ul>
 
   <h2>Design process</h2>
@@ -92,7 +102,8 @@
     <h2>Publications</h2>
     <ul>
       <li>A. Tabak and R. Orszulik, &ldquo;A monolithic flexible transmission for piezoelectric actuators,&rdquo; 2022 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM), pp. 138&ndash;143.</li>
-      <li>A. Tabak and R. Orszulik, &ldquo;Additively manufactured transmission design for mesoscale mechanisms,&rdquo; abstract, CSME International Congress 2022.</li>
+      <li>A. Tabak and R. Orszulik, &ldquo;Additively manufactured transmission design for mesoscale mechanisms,&rdquo; abstract, CSME International Congress 2022. <a href="https://era.library.ualberta.ca/items/09b4dc64-0eb9-4151-b798-829a43f83eba" target="_blank" rel="noopener">Read the abstract</a></li>
+      <li>Full details in my M.Sc. thesis. <a href="https://hdl.handle.net/10315/42393" target="_blank" rel="noopener">Read the thesis</a></li>
     </ul>
   </div>
 
@@ -100,12 +111,14 @@
     <a href="millimeter-scale-robot.html">&larr; 3D Printed Millimeter-scale Robot</a>
     <a href="trajectory-generation-tools.html">Trajectory Generation Tools &rarr;</a>
   </div>
+
 </article>
 </main>
 <footer class="site-footer"><div class="wrap">
   <span>© Ariel Tabak</span>
   <span class="links">
-    <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:arieltabak@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/ariel-tabak/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/arltabak" target="_blank" rel="noopener">GitHub</a>
   </span>
 </div></footer>

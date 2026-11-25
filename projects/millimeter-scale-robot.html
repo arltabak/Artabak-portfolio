@@ -38,31 +38,41 @@
 
 
 <article class="prose">
-  <h2>Overview</h2>
-  <p>Small robots for tasks like pick-and-place and micro-positioning need precise, fast motion, but conventional robots rely on many assembled joints that are hard to build at the millimeter scale.
-     My Master's thesis set out to design a mesoscale parallel robot that could be 3D printed as a single part, using compliant flexure joints in place of pins and bearings, and driven by piezoelectric bimorph actuators.</p>
-
-  <h2>My role</h2>
-  <p>This was my M.Sc. thesis in York University's Responsive Materials &amp; Robotics Laboratory, supervised by Dr. Ryan Orszulik. I took the robot from concept to working prototype:
-     characterizing the actuators, designing the transmission, building the kinematic and finite element models, designing the test rig, and running the experiments.</p>
-
-  <h2>Approach</h2>
-  <ul>
-    <li><strong>Actuators:</strong> modeled commercial piezoelectric bimorphs in ABAQUS and verified deflection and resonance against manufacturer specs and laser displacement measurements.</li>
-    <li><strong>Transmission:</strong> used a <a href="linear-to-rotary-transmission.html">compliant transmission</a> I designed to convert each actuator's sub-millimeter stroke into large rotation.</li>
-    <li><strong>Robot design:</strong> combined two 3R chains into a six-bar planar parallel robot, so two actuators control the end effector in X and Y.</li>
-    <li><strong>Modeling:</strong> built a simplified kinematic model to find the parameters that maximize workspace, then a full ABAQUS model including the actuators and transmissions to predict movements, workspace and resonant frequencies.</li>
-    <li><strong>Trajectory generation:</strong> mapped the workspace by sweeping a grid of input voltages, then built a transformation from desired end-effector positions to actuator voltages to drive paths such as a circle and the letter Y, using <a href="trajectory-generation-tools.html">MATLAB tools I wrote</a>.</li>
-    <li><strong>Fabrication:</strong> printed in flexible Agilus30 and rigid VeroWhite on an Objet Connex500 PolyJet printer, oriented so the critical flexures print with 28&nbsp;&micro;m accuracy through their thickness.</li>
-    <li><strong>Testing:</strong> drove the actuators from Simulink through a Speedgoat real-time machine and high-voltage amplifier, and tracked motion with a Chronos 2.1 high-speed camera and ProAnalyst.</li>
-  </ul>
-
   <h2>Results</h2>
   <ul>
     <li>A 37.88 &times; 20.54&nbsp;mm robot with a 14.36 &times; 8.66&nbsp;mm workspace (65.6&nbsp;mm&sup2;), a workspace-to-footprint ratio of about 1&nbsp;:&nbsp;8.5.</li>
     <li>Holds a 12.06 &times; 6.80&nbsp;mm workspace at 10&nbsp;Hz, and follows trajectories spanning the full workspace at 10&nbsp;Hz, better than simulation predicted.</li>
     <li>Measured voltage-to-displacement behavior closely matched simulation, with small deviations from hysteresis in the actuators and flexible material.</li>
     <li>No change in performance after a 10,000-cycle fatigue test.</li>
+  </ul>
+
+  <h2>Motivation</h2>
+  <p>Small robots for tasks like pick-and-place and micro-positioning need precise, fast motion, but conventional robots rely on many assembled joints that are hard to build at the millimeter scale.
+     My Master's thesis set out to design a mesoscale parallel robot that could be 3D printed as a single part, using compliant flexure joints in place of pins and bearings, and driven by piezoelectric bimorph actuators.</p>
+
+  <h2>My role</h2>
+  <p>This was my M.Sc. thesis in York University's Responsive Materials &amp; Robotics Laboratory, supervised by Dr. Ryan Orszulik. I took the robot from concept to working prototype:
+     characterizing the actuators, designing the transmission, building the kinematic and finite element models, designing the test rig, and running the experiments.</p>
+  <p class="skills-label"><strong>Skills</strong></p>
+  <ul class="skill-list">
+    <li>Finite element analysis (ABAQUS): static, modal and dynamic</li>
+    <li>Kinematic modeling and parametric design</li>
+    <li>Compliant mechanisms and monolithic design</li>
+    <li>3D printing and rapid prototyping (PolyJet)</li>
+    <li>Real-time control and test (Simulink, Speedgoat)</li>
+    <li>High-speed video motion tracking</li>
+    <li>Fabrication, assembly and experimental testing</li>
+  </ul>
+
+  <h2>Approach</h2>
+  <ul>
+    <li><strong>Actuators:</strong> modeled commercial piezoelectric bimorphs in ABAQUS and verified deflection and resonance against manufacturer specs and laser displacement measurements.</li>
+    <li><strong>Transmission:</strong> integrated a <a href="linear-to-rotary-transmission.html">compliant transmission</a> I designed to convert each actuator's sub-millimeter stroke into large rotation.</li>
+    <li><strong>Robot design:</strong> combined two 3R chains into a six-bar planar parallel robot, so two actuators control the end effector in X and Y.</li>
+    <li><strong>Modeling:</strong> built a simplified kinematic model to find the parameters that maximize workspace, then a full ABAQUS model including the actuators and transmissions to predict movements, workspace and resonant frequencies.</li>
+    <li><strong>Trajectory generation:</strong> mapped the workspace by sweeping a grid of input voltages, then built a transformation from desired end-effector positions to actuator voltages to drive paths such as a circle and the letter Y, using <a href="trajectory-generation-tools.html">MATLAB tools I wrote</a>.</li>
+    <li><strong>Fabrication:</strong> printed in flexible Agilus30 and rigid VeroWhite on an Objet Connex500 PolyJet printer, oriented so the critical flexures print with 28&nbsp;&micro;m accuracy through their thickness.</li>
+    <li><strong>Testing:</strong> drove the actuators from Simulink through a Speedgoat real-time machine and high-voltage amplifier, and tracked motion with a Chronos 2.1 high-speed camera and ProAnalyst.</li>
   </ul>
 
   <h2>Design and fabrication</h2>
@@ -96,7 +106,7 @@
   <div class="pubs">
     <h2>Publications</h2>
     <ul>
-      <li>A. Tabak, <em>Design and Additive Manufacture of a High-Speed Piezoelectrically Actuated Compliant Mesoscale Parallel Robot</em>, M.Sc. thesis, York University, 2023.</li>
+      <li>A. Tabak, <em>Design and Additive Manufacture of a High-Speed Piezoelectrically Actuated Compliant Mesoscale Parallel Robot</em>, M.Sc. thesis, York University, 2023. <a href="https://hdl.handle.net/10315/42393" target="_blank" rel="noopener">Read the thesis</a></li>
       <li>A. Tabak and R. Orszulik, &ldquo;A monolithic flexible transmission for piezoelectric actuators,&rdquo; 2022 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM), pp. 138&ndash;143.</li>
     </ul>
   </div>
@@ -105,12 +115,14 @@
     <a href="trajectory-generation-tools.html">&larr; Trajectory Generation Tools</a>
     <a href="linear-to-rotary-transmission.html">Flexible Linear-to-Rotary Transmission &rarr;</a>
   </div>
+
 </article>
 </main>
 <footer class="site-footer"><div class="wrap">
   <span>© Ariel Tabak</span>
   <span class="links">
-    <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:arieltabak@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/ariel-tabak/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/arltabak" target="_blank" rel="noopener">GitHub</a>
   </span>
 </div></footer>
