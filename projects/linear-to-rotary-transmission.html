@@ -33,7 +33,7 @@
 
 <figure class="hero-fig">
   <img class="hero-img" src="../images/projects/linear-to-rotary-transmission.jpg" alt="The 3D printed transmission in its actuated position next to a Canadian dime">
-  <figcaption>The printed transmission in its actuated position, next to a Canadian dime.</figcaption>
+  <figcaption>An earlier printed iteration in its actuated position, next to a Canadian dime.</figcaption>
 </figure>
 
 <div class="stats">
@@ -68,10 +68,20 @@
     <li>Selected a 308&nbsp;&micro;m flexure thickness as the starting point for the robot.</li>
   </ul>
 
+  <h2>Design process</h2>
   <div class="gallery">
-    <figure><img src="../images/projects/linear-to-rotary-transmission-part.jpg" alt="Printed transmission with 308 micron flexures and a millimeter scale bar"><figcaption>Printed transmission with 308&nbsp;&micro;m flexures (scale in mm).</figcaption></figure>
-    <figure><img src="../images/projects/linear-to-rotary-transmission-fea.jpg" alt="Finite element result showing the transmission's deformed shape"><figcaption>Finite element result at the actuated limit.</figcaption></figure>
-    <figure class="wide"><img src="../images/projects/linear-to-rotary-transmission-setup.jpg" alt="Test setup with micrometer stage, flexure driver, transmission and optical table mount"><figcaption>Test setup: a micrometer stage pushes the flexure driver while a camera records the rotation.</figcaption></figure>
+    <figure><img src="../images/projects/linear-to-rotary-transmission-parameters.jpg" alt="Labeled model of an earlier design showing grounded flexures, driven flexure, base and angled bar" loading="lazy"><figcaption>Earlier iteration: the parameters investigated for design optimization.</figcaption></figure>
+    <figure><video src="../images/projects/linear-to-rotary-transmission-fea.mp4" poster="../images/projects/linear-to-rotary-transmission-fea.jpg" autoplay muted loop playsinline aria-label="Animated ABAQUS displacement result of an earlier design"></video><figcaption>Earlier iteration: ABAQUS finite element results showing the motion.</figcaption></figure>
+    <figure><img src="../images/projects/linear-to-rotary-transmission-optimization.jpg" alt="Contour plot of predicted rotation versus flexure length and flexure offset" loading="lazy"><figcaption>Design optimization results: MATLAB plot generated from ABAQUS results.</figcaption></figure>
+    <figure><video src="../images/projects/linear-to-rotary-transmission-motion.mp4" poster="../images/projects/linear-to-rotary-transmission-motion.jpg" autoplay muted loop playsinline aria-label="Video of the printed earlier design rotating under actuation"></video><figcaption>Earlier iteration: printed prototype showing its range of motion.</figcaption></figure>
+  </div>
+
+  <h2>Prototype and testing</h2>
+  <div class="gallery">
+    <figure><img src="../images/projects/linear-to-rotary-transmission-final.jpg" alt="White multi-material transmission fresh from the printer" loading="lazy"><figcaption>Final design, fresh out of the PolyJet 3D printer.</figcaption></figure>
+    <figure><img src="../images/projects/linear-to-rotary-transmission-part.jpg" alt="Black flexible transmission with 308 micron flexures and a millimeter scale bar" loading="lazy"><figcaption>First all-flexible prototype with 308&nbsp;&micro;m flexures (scale in mm).</figcaption></figure>
+    <figure><img src="../images/projects/linear-to-rotary-transmission-rig.jpg" alt="Test rig with transmission, flexure driver, optical table mount and linear motorized stage" loading="lazy"><figcaption>Test setup for the final design, driven by a linear motorized stage.</figcaption></figure>
+    <figure><img src="../images/projects/linear-to-rotary-transmission-results.jpg" alt="Plot of rotation versus displacement comparing simulation and experiment" loading="lazy"><figcaption>Simulated vs. experimental performance of the final design.</figcaption></figure>
   </div>
 
   <h2>What I learned</h2>
