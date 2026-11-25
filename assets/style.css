@@ -176,3 +176,15 @@ section { padding: 36px 0; }
 .gallery video { width: 100%; display: block; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
 .inline-fig { margin: 18px 0 6px; max-width: 520px; }
 .inline-fig video, .inline-fig img { width: 100%; display: block; border-radius: 10px; border: 1px solid var(--line); }
+
+/* Three-up gallery row (e.g. trajectory clips) */
+.gallery.three { grid-template-columns: repeat(3, 1fr); }
+.gallery.three { gap: 10px; }
+.gallery.three.even img, .gallery.three.even video { aspect-ratio: 4 / 3; object-fit: cover; }
+@media (max-width: 560px) { .gallery.three figcaption { font-size: 0.75rem; } }
+
+/* Side-by-side hero (e.g. early vs final iteration) */
+.hero-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.hero-pair figure { margin: 0; }
+.hero-pair img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); display: block; }
+.hero-pair figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 8px; }
