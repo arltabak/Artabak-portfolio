@@ -24,9 +24,9 @@
   <h1>3D Printed Millimeter-scale Robot</h1>
   <p class="summary">A small parallel robot, 3D printed with flexible joints instead of pins and bearings, that turns the tiny motion of two piezoelectric actuators into millimeter-scale movement and traces paths at up to 10&nbsp;Hz.</p>
   <div class="meta">
-    <span><strong>When:</strong> M.Sc. thesis, completed 2023</span>
-    <span><strong>Role:</strong> Lead researcher</span>
-    <span><strong>Context:</strong> Research, York University</span>
+    <span><strong>When:</strong> 2021&ndash;2023, M.Sc. thesis</span>
+    <span><strong>Role:</strong> Graduate research assistant, lead researcher</span>
+    <span><strong>Context:</strong> Responsive Materials &amp; Robotics Laboratory, York University</span>
   </div>
   <span class="tag">Robotics</span><span class="tag">3D printing</span><span class="tag">FEA (ABAQUS)</span><span class="tag">MATLAB / Simulink</span><span class="tag">Piezoelectrics</span>
 </div>
@@ -49,7 +49,7 @@
      My Master's thesis set out to design a mesoscale parallel robot that could be 3D printed as a single part, using compliant flexure joints in place of pins and bearings, and driven by piezoelectric bimorph actuators.</p>
 
   <h2>My role</h2>
-  <p>This was my M.Sc. thesis at York University, supervised by Dr. Ryan Orszulik. I took the robot from concept to working prototype:
+  <p>This was my M.Sc. thesis in York University's Responsive Materials &amp; Robotics Laboratory, supervised by Dr. Ryan Orszulik. I took the robot from concept to working prototype:
      characterizing the actuators, designing the transmission, building the kinematic and finite element models, designing the test rig, and running the experiments.</p>
 
   <h2>Approach</h2>
@@ -58,7 +58,7 @@
     <li><strong>Transmission:</strong> used a <a href="linear-to-rotary-transmission.html">compliant transmission</a> I designed to convert each actuator's sub-millimeter stroke into large rotation.</li>
     <li><strong>Robot design:</strong> combined two 3R chains into a six-bar planar parallel robot, so two actuators control the end effector in X and Y.</li>
     <li><strong>Modeling:</strong> built a simplified kinematic model to find the parameters that maximize workspace, then a full ABAQUS model including the actuators and transmissions to predict movements, workspace and resonant frequencies.</li>
-    <li><strong>Trajectory generation:</strong> mapped the workspace by sweeping a grid of input voltages, then built a transformation from desired end-effector positions to actuator voltages to drive paths such as a circle and the letter Y.</li>
+    <li><strong>Trajectory generation:</strong> mapped the workspace by sweeping a grid of input voltages, then built a transformation from desired end-effector positions to actuator voltages to drive paths such as a circle and the letter Y, using <a href="trajectory-generation-tools.html">MATLAB tools I wrote</a>.</li>
     <li><strong>Fabrication:</strong> printed in flexible Agilus30 and rigid VeroWhite on an Objet Connex500 PolyJet printer, oriented so the critical flexures print with 28&nbsp;&micro;m accuracy through their thickness.</li>
     <li><strong>Testing:</strong> drove the actuators from Simulink through a Speedgoat real-time machine and high-voltage amplifier, and tracked motion with a Chronos 2.1 high-speed camera and ProAnalyst.</li>
   </ul>

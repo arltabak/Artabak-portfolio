@@ -22,41 +22,43 @@
 <div class="project-head">
   <a class="back" href="../research.html">&larr; Research</a>
   <h1>Trajectory Generation Tools</h1>
-  <p class="summary"><span class="todo">TODO</span> One or two sentences: the problem and what you achieved.</p>
+  <p class="summary">Two MATLAB tools I built to drive and test my millimeter-scale robot: one generates actuator voltage signals, the other turns desired end-effector paths into time-series inputs for MATLAB, Simulink and ABAQUS.</p>
   <div class="meta">
-    <span><strong>When:</strong> <span class="todo">TODO</span></span>
-    <span><strong>Role:</strong> <span class="todo">TODO</span></span>
-    <span><strong>Context:</strong> Research</span>
+    <span><strong>When:</strong> M.Sc. research</span>
+    <span><strong>Role:</strong> Developer</span>
+    <span><strong>Context:</strong> Research, supporting the <a href="millimeter-scale-robot.html">millimeter-scale robot</a></span>
   </div>
-  <span class="tag">MATLAB</span><span class="tag">Software</span>
+  <span class="tag">MATLAB</span><span class="tag">Simulink</span><span class="tag">ABAQUS</span><span class="tag">Software</span>
 </div>
 
-<img class="hero-img" src="../images/projects/trajectory-generation-tools.svg" alt="Trajectory Generation Tools">
+<figure class="hero-fig">
+  <img class="hero-img" src="../images/projects/trajectory-generation-tools.jpg" alt="Workspace grid: measured end-effector positions and the grid of actuator voltages that produced them">
+  <figcaption>Mapping the robot's workspace by sweeping both actuators from 0 to 148&nbsp;V: measured end-effector positions (left) and the voltage grid that produced them (right).</figcaption>
+</figure>
+
 
 <article class="prose">
   <h2>Overview</h2>
-  <p><span class="todo">TODO</span> What was the goal, and why did it matter?</p>
+  <p>Testing the <a href="millimeter-scale-robot.html">piezoelectric parallel robot</a> meant generating many different input signals, both to learn how actuator voltages map to end-effector motion and to make the robot follow specific paths.
+     Rather than build each signal by hand, I wrote two MATLAB tools to define, check and export them.</p>
 
-  <h2>My role</h2>
-  <p><span class="todo">TODO</span> What you personally did (design, analysis, testing, leading the team...).</p>
-
-  <h2>Approach</h2>
-  <p><span class="todo">TODO</span> How you tackled it: key design decisions, analysis methods, tools.</p>
-
-  <h2>Results</h2>
+  <h2>The tools</h2>
   <ul>
-    <li><span class="todo">TODO</span> A measurable result (numbers are best).</li>
-    <li><span class="todo">TODO</span> Another outcome or validation.</li>
+    <li><strong>Voltage Signal Generation Tool:</strong> defines trajectories directly in terms of the voltages sent to each bimorph. I used it to find the robot's basic movements, map its workspace, and relate input voltages to output displacements.</li>
+    <li><strong>Trajectory Generation Tool:</strong> defines trajectories by the desired end-effector position, built from line and arc segments with time- or velocity-based timing. Progress can be saved, and the result is exported as time-series data for MATLAB, Simulink and ABAQUS.</li>
   </ul>
 
-  <h2>What I learned</h2>
-  <p><span class="todo">TODO</span> One or two takeaways.</p>
+  <h2>Features</h2>
+  <ul>
+    <li>Input sanitization</li>
+    <li>Segment highlighting</li>
+    <li>Linear and circular movements, with retrace and repeat options</li>
+    <li>Import and export of trajectory definition files</li>
+    <li>User manuals for each tool</li>
+  </ul>
 
-  <!-- Gallery: add more photos by copying a <figure> block.
-  <div class="gallery">
-    <figure><img src="../images/projects/trajectory-generation-tools-1.jpg" alt=""><figcaption>Caption</figcaption></figure>
-  </div>
-  -->
+  <h2>Results</h2>
+  <p>I used the tools to map the robot's workspace and to build the test trajectories (workspace trace, circle and the letter Y) in my thesis.</p>
 
   <div class="next-prev">
     <a href="linear-to-rotary-transmission.html">&larr; Flexible Linear-to-Rotary Transmission</a>

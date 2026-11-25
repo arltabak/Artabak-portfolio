@@ -22,41 +22,44 @@
 <div class="project-head">
   <a class="back" href="../clubs-coursework.html">&larr; Clubs &amp; Coursework</a>
   <h1>Satellite Tracking with LabVIEW</h1>
-  <p class="summary"><span class="todo">TODO</span> One or two sentences: the problem and what you achieved.</p>
+  <p class="summary">LabVIEW software that predicts which satellites are visible and generates pointing files so a ground station antenna can track a satellite and receive its downlink.</p>
   <div class="meta">
-    <span><strong>When:</strong> <span class="todo">TODO</span></span>
-    <span><strong>Role:</strong> <span class="todo">TODO</span></span>
-    <span><strong>Context:</strong> Course project</span>
+    <span><strong>When:</strong> Final year of Bachelor's</span>
+    <span><strong>Role:</strong> Software, orbital mechanics, RF, testing</span>
+    <span><strong>Context:</strong> Space Hardware course project, York University</span>
   </div>
-  <span class="tag">LabVIEW</span><span class="tag">Controls</span>
+  <span class="tag">LabVIEW</span><span class="tag">Orbital mechanics</span><span class="tag">RF communications</span>
 </div>
 
 <img class="hero-img" src="../images/projects/satellite-tracking-labview.svg" alt="Satellite Tracking with LabVIEW">
 
+
 <article class="prose">
   <h2>Overview</h2>
-  <p><span class="todo">TODO</span> What was the goal, and why did it matter?</p>
+  <p>To receive data from a satellite, a ground station's antenna has to follow it across the sky. For the final-year Space Hardware course, I built LabVIEW software that works out where a satellite will be and how to point the antenna at it.</p>
 
-  <h2>My role</h2>
-  <p><span class="todo">TODO</span> What you personally did (design, analysis, testing, leading the team...).</p>
-
-  <h2>Approach</h2>
-  <p><span class="todo">TODO</span> How you tackled it: key design decisions, analysis methods, tools.</p>
-
-  <h2>Results</h2>
+  <h2>How it works</h2>
+  <p><strong>Inputs:</strong></p>
   <ul>
-    <li><span class="todo">TODO</span> A measurable result (numbers are best).</li>
-    <li><span class="todo">TODO</span> Another outcome or validation.</li>
+    <li>Time window</li>
+    <li>Ground station and antenna parameters</li>
+    <li>Satellite orbital data in Two-Line Element (TLE) format</li>
+  </ul>
+  <p><strong>Outputs:</strong></p>
+  <ul>
+    <li>Plots and lists of the satellites visible from the ground station</li>
+    <li>Details for individual satellites</li>
+    <li>Files for cross-checking results in STK (Systems Tool Kit)</li>
+    <li>Antenna pointing files for tracking a pass</li>
   </ul>
 
-  <h2>What I learned</h2>
-  <p><span class="todo">TODO</span> One or two takeaways.</p>
-
-  <!-- Gallery: add more photos by copying a <figure> block.
-  <div class="gallery">
-    <figure><img src="../images/projects/satellite-tracking-labview-1.jpg" alt=""><figcaption>Caption</figcaption></figure>
-  </div>
-  -->
+  <h2>My role</h2>
+  <ul>
+    <li>Software development in LabVIEW</li>
+    <li>Orbital mechanics and coordinate conversions</li>
+    <li>RF communications</li>
+    <li>Testing</li>
+  </ul>
 
   <div class="next-prev">
     <a href="hybrid-rocket-engine.html">&larr; Hybrid Rocket Engine</a>
