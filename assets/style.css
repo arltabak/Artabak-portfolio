@@ -175,3 +175,8 @@ section { padding: 36px 0; }
 
 /* Real photos on project pages: show the whole image rather than cropping to 16:9 */
 .hero-fig .hero-img { aspect-ratio: auto; max-height: 620px; object-fit: contain; background: var(--surface); }
+
+/* Don't blow small images up past their real size */
+.hero-fig .hero-img { width: auto; max-width: 100%; margin: 0 auto; }
+.hero-fig video.hero-img { width: 100%; }
+.gallery img { background: #fff; }
