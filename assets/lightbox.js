@@ -12,11 +12,16 @@
   box.setAttribute('aria-modal', 'true');
   box.setAttribute('aria-label', 'Image viewer');
   box.innerHTML =
-    '<button class="lb-close" aria-label="Close">&times;</button>' +
-    '<button class="lb-nav lb-prev" aria-label="Previous">&#8249;</button>' +
-    '<div class="lb-stage"></div>' +
-    '<button class="lb-nav lb-next" aria-label="Next">&#8250;</button>' +
-    '<p class="lb-cap"></p>';
+    '<div class="lb-card">' +
+      '<button class="lb-close" aria-label="Close">&times;</button>' +
+      '<div class="lb-stage"></div>' +
+      '<div class="lb-bar">' +
+        '<button class="lb-prev" aria-label="Previous">&#8249;</button>' +
+        '<p class="lb-cap"></p>' +
+        '<span class="lb-count"></span>' +
+        '<button class="lb-next" aria-label="Next">&#8250;</button>' +
+      '</div>' +
+    '</div>';
   document.body.appendChild(box);
   var stage = box.querySelector('.lb-stage');
   var cap = box.querySelector('.lb-cap');
@@ -43,6 +48,7 @@
     stage.appendChild(el);
     var c = f.querySelector('figcaption');
     cap.textContent = c ? c.textContent : '';
+    box.querySelector('.lb-count').textContent = figs.length > 1 ? (idx + 1) + ' / ' + figs.length : '';
     var multi = figs.length > 1;
     box.querySelector('.lb-prev').style.display = multi ? '' : 'none';
     box.querySelector('.lb-next').style.display = multi ? '' : 'none';
@@ -79,7 +85,7 @@
   box.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(idx - 1); });
   box.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(idx + 1); });
   box.addEventListener('click', function (e) {
-    if (e.target === box || e.target === stage || e.target === cap) close();
+    if (e.target === box) close();
   });
   document.addEventListener('keydown', function (e) {
     if (!box.classList.contains('open')) return;
