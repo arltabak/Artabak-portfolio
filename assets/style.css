@@ -109,6 +109,20 @@ section { padding: 36px 0; }
 .gallery figure { margin: 0; }
 .gallery img { border-radius: 10px; border: 1px solid var(--line); }
 .gallery figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
+.hero-fig { margin: 0; }
+.hero-fig figcaption, .prose figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 8px; }
+.gallery figure.wide { grid-column: 1 / -1; }
+.stats {
+  display: grid; gap: 12px; margin: 26px 0 4px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.stats div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.stats strong { display: block; font-size: 1.25rem; letter-spacing: -0.01em; }
+.stats span { color: var(--muted); font-size: 0.85rem; }
+.prose li { margin-bottom: 6px; }
+.pubs { margin-top: 34px; padding: 4px 20px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.pubs h2 { margin-top: 18px; }
+.pubs li { font-size: 0.93rem; }
 .todo { background: #fff7e0; border: 1px dashed #e0b84a; border-radius: 8px; padding: 2px 8px; color: #7a5a00; font-size: 0.9em; }
 .next-prev { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); padding: 22px 0 8px; font-size: 0.95rem; }
 
@@ -158,3 +172,6 @@ section { padding: 36px 0; }
   .hero { padding: 40px 0 28px; }
   .page-intro { padding-top: 36px; }
 }
+
+/* Real photos on project pages: show the whole image rather than cropping to 16:9 */
+.hero-fig .hero-img { aspect-ratio: auto; max-height: 620px; object-fit: contain; background: var(--surface); }

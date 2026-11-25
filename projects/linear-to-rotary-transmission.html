@@ -22,41 +22,70 @@
 <div class="project-head">
   <a class="back" href="../research.html">&larr; Research</a>
   <h1>Flexible Linear-to-Rotary Transmission</h1>
-  <p class="summary"><span class="todo">TODO</span> One or two sentences: the problem and what you achieved.</p>
+  <p class="summary">A 3D printed compliant mechanism that converts a piezoelectric actuator's sub-millimeter push into nearly 30&deg; of rotation, with no assembled joints.</p>
   <div class="meta">
-    <span><strong>When:</strong> <span class="todo">TODO</span></span>
-    <span><strong>Role:</strong> <span class="todo">TODO</span></span>
-    <span><strong>Context:</strong> Research</span>
+    <span><strong>When:</strong> M.Sc. research, published 2022</span>
+    <span><strong>Role:</strong> Lead researcher, first author</span>
+    <span><strong>Context:</strong> Research, York University</span>
   </div>
-  <span class="tag">Mechanism design</span>
+  <span class="tag">Compliant mechanisms</span><span class="tag">FEA (ABAQUS)</span><span class="tag">MATLAB</span><span class="tag">3D printing</span>
 </div>
 
-<img class="hero-img" src="../images/projects/linear-to-rotary-transmission.svg" alt="Flexible Linear-to-Rotary Transmission">
+<figure class="hero-fig">
+  <img class="hero-img" src="../images/projects/linear-to-rotary-transmission.jpg" alt="The 3D printed transmission in its actuated position next to a Canadian dime">
+  <figcaption>The printed transmission in its actuated position, next to a Canadian dime.</figcaption>
+</figure>
+
+<div class="stats">
+  <div><strong>&plusmn;0.56&nbsp;mm</strong><span>linear input</span></div>
+  <div><strong>~29&deg;</strong><span>measured rotation each way</span></div>
+  <div><strong>308&nbsp;&micro;m</strong><span>flexure thickness chosen for the robot</span></div>
+  <div><strong>IEEE/ASME AIM</strong><span>published 2022</span></div>
+</div>
 
 <article class="prose">
   <h2>Overview</h2>
-  <p><span class="todo">TODO</span> What was the goal, and why did it matter?</p>
+  <p>Piezoelectric actuators are fast and precise, but they only move fractions of a millimeter. To power a small robot, that motion has to become large rotation, and gears or pinned linkages are hard to build at this size.
+     This project designed a compliant transmission that does the conversion through flexing material alone, so it can be 3D printed in one piece. It became the core mechanism of my <a href="millimeter-scale-robot.html">millimeter-scale robot</a>.</p>
 
   <h2>My role</h2>
-  <p><span class="todo">TODO</span> What you personally did (design, analysis, testing, leading the team...).</p>
+  <p>As part of my M.Sc. research at York University, I designed, modeled, fabricated and tested the transmission, and presented it as first author at the 2022 IEEE/ASME AIM conference.</p>
 
   <h2>Approach</h2>
-  <p><span class="todo">TODO</span> How you tackled it: key design decisions, analysis methods, tools.</p>
+  <ul>
+    <li><strong>Initial design:</strong> modeled candidate designs in ABAQUS. The long flexures and large deformations ruled out rigid-body and pseudo-rigid-body models.</li>
+    <li><strong>Fast parameter sweeps:</strong> wrote a simplified 2D beam-element finite element model in MATLAB to sweep design parameters quickly, then confirmed the trends with 3D ABAQUS models.</li>
+    <li><strong>Key finding:</strong> flexure thickness was the most critical parameter, followed by flexure length and the angle between flexures.</li>
+    <li><strong>Prototypes:</strong> printed versions with 196, 308 and 392&nbsp;&micro;m flexures in flexible Agilus30 (PolyJet).</li>
+    <li><strong>Testing:</strong> drove each prototype from a micrometer stage across &plusmn;0.5625&nbsp;mm and measured rotation optically from overhead images in MATLAB, with under 1% measurement error.</li>
+    <li><strong>Revision:</strong> redesigned as a multi-material part, with rigid VeroWhite encasing the flexible flexures to reduce the risk of material separation during cleaning, then retested on a motorized stage.</li>
+  </ul>
 
   <h2>Results</h2>
   <ul>
-    <li><span class="todo">TODO</span> A measurable result (numbers are best).</li>
-    <li><span class="todo">TODO</span> Another outcome or validation.</li>
+    <li>Converted &plusmn;0.5625&nbsp;mm of linear input into up to about 29&deg; of rotation in each direction.</li>
+    <li>The multi-material design performed best: the 392&nbsp;&micro;m version came within 6&ndash;9% of simulation, compared with 23&ndash;29% for the all-flexible base.</li>
+    <li>Selected a 308&nbsp;&micro;m flexure thickness as the starting point for the robot.</li>
   </ul>
 
-  <h2>What I learned</h2>
-  <p><span class="todo">TODO</span> One or two takeaways.</p>
-
-  <!-- Gallery: add more photos by copying a <figure> block.
   <div class="gallery">
-    <figure><img src="../images/projects/linear-to-rotary-transmission-1.jpg" alt=""><figcaption>Caption</figcaption></figure>
+    <figure><img src="../images/projects/linear-to-rotary-transmission-part.jpg" alt="Printed transmission with 308 micron flexures and a millimeter scale bar"><figcaption>Printed transmission with 308&nbsp;&micro;m flexures (scale in mm).</figcaption></figure>
+    <figure><img src="../images/projects/linear-to-rotary-transmission-fea.jpg" alt="Finite element result showing the transmission's deformed shape"><figcaption>Finite element result at the actuated limit.</figcaption></figure>
+    <figure class="wide"><img src="../images/projects/linear-to-rotary-transmission-setup.jpg" alt="Test setup with micrometer stage, flexure driver, transmission and optical table mount"><figcaption>Test setup: a micrometer stage pushes the flexure driver while a camera records the rotation.</figcaption></figure>
   </div>
-  -->
+
+  <h2>What I learned</h2>
+  <p>3D printing made big design changes, like switching to a multi-material part, possible with no added manufacturing time.
+     The simplified model was ideal for exploring the design quickly, but it drifted from the full model as the flexures got thicker (shear, geometric nonlinearity and material incompressibility),
+     so I used it to explore and the full finite element model to confirm.</p>
+
+  <div class="pubs">
+    <h2>Publications</h2>
+    <ul>
+      <li>A. Tabak and R. Orszulik, &ldquo;A monolithic flexible transmission for piezoelectric actuators,&rdquo; 2022 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM), pp. 138&ndash;143.</li>
+      <li>A. Tabak and R. Orszulik, &ldquo;Additively manufactured transmission design for mesoscale mechanisms,&rdquo; abstract, CSME International Congress 2022.</li>
+    </ul>
+  </div>
 
   <div class="next-prev">
     <a href="millimeter-scale-robot.html">&larr; 3D Printed Millimeter-scale Robot</a>

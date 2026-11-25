@@ -22,41 +22,72 @@
 <div class="project-head">
   <a class="back" href="../research.html">&larr; Research</a>
   <h1>3D Printed Millimeter-scale Robot</h1>
-  <p class="summary"><span class="todo">TODO</span> One or two sentences: the problem and what you achieved.</p>
+  <p class="summary">A small parallel robot, 3D printed with flexible joints instead of pins and bearings, that turns the tiny motion of two piezoelectric actuators into millimeter-scale movement and traces paths at up to 10&nbsp;Hz.</p>
   <div class="meta">
-    <span><strong>When:</strong> <span class="todo">TODO</span></span>
-    <span><strong>Role:</strong> <span class="todo">TODO</span></span>
-    <span><strong>Context:</strong> Research</span>
+    <span><strong>When:</strong> M.Sc. thesis, completed 2023</span>
+    <span><strong>Role:</strong> Lead researcher</span>
+    <span><strong>Context:</strong> Research, York University</span>
   </div>
-  <span class="tag">Robotics</span><span class="tag">3D printing</span>
+  <span class="tag">Robotics</span><span class="tag">3D printing</span><span class="tag">FEA (ABAQUS)</span><span class="tag">MATLAB / Simulink</span><span class="tag">Piezoelectrics</span>
 </div>
 
-<img class="hero-img" src="../images/projects/millimeter-scale-robot.svg" alt="3D Printed Millimeter-scale Robot">
+<figure class="hero-fig">
+  <img class="hero-img" src="../images/projects/millimeter-scale-robot.jpg" alt="The 3D printed parallel robot mounted on the test rig, driven by two piezoelectric bimorph actuators">
+  <figcaption>The robot on its test rig, driven by two piezoelectric bimorphs.</figcaption>
+</figure>
+
+<div class="stats">
+  <div><strong>37.9 &times; 20.5&nbsp;mm</strong><span>robot size</span></div>
+  <div><strong>65.6&nbsp;mm&sup2;</strong><span>workspace</span></div>
+  <div><strong>10&nbsp;Hz</strong><span>trajectory speed</span></div>
+  <div><strong>10,000</strong><span>cycles with no performance loss</span></div>
+</div>
 
 <article class="prose">
   <h2>Overview</h2>
-  <p><span class="todo">TODO</span> What was the goal, and why did it matter?</p>
+  <p>Small robots for tasks like pick-and-place and micro-positioning need precise, fast motion, but conventional robots rely on many assembled joints that are hard to build at the millimeter scale.
+     My Master's thesis set out to design a mesoscale parallel robot that could be 3D printed as a single part, using compliant flexure joints in place of pins and bearings, and driven by piezoelectric bimorph actuators.</p>
 
   <h2>My role</h2>
-  <p><span class="todo">TODO</span> What you personally did (design, analysis, testing, leading the team...).</p>
+  <p>This was my M.Sc. thesis at York University, supervised by Dr. Ryan Orszulik. I took the robot from concept to working prototype:
+     characterizing the actuators, designing the transmission, building the kinematic and finite element models, designing the test rig, and running the experiments.</p>
 
   <h2>Approach</h2>
-  <p><span class="todo">TODO</span> How you tackled it: key design decisions, analysis methods, tools.</p>
+  <ul>
+    <li><strong>Actuators:</strong> modeled commercial piezoelectric bimorphs in ABAQUS and verified deflection and resonance against manufacturer specs and laser displacement measurements.</li>
+    <li><strong>Transmission:</strong> used a <a href="linear-to-rotary-transmission.html">compliant transmission</a> I designed to convert each actuator's sub-millimeter stroke into large rotation.</li>
+    <li><strong>Robot design:</strong> combined two 3R chains into a six-bar planar parallel robot, so two actuators control the end effector in X and Y.</li>
+    <li><strong>Modeling:</strong> built a simplified kinematic model to find the parameters that maximize workspace, then a full ABAQUS model including the actuators and transmissions to predict movements, workspace and resonant frequencies.</li>
+    <li><strong>Trajectory generation:</strong> mapped the workspace by sweeping a grid of input voltages, then built a transformation from desired end-effector positions to actuator voltages to drive paths such as a circle and the letter Y.</li>
+    <li><strong>Fabrication:</strong> printed in flexible Agilus30 and rigid VeroWhite on an Objet Connex500 PolyJet printer, oriented so the critical flexures print with 28&nbsp;&micro;m accuracy through their thickness.</li>
+    <li><strong>Testing:</strong> drove the actuators from Simulink through a Speedgoat real-time machine and high-voltage amplifier, and tracked motion with a Chronos 2.1 high-speed camera and ProAnalyst.</li>
+  </ul>
 
   <h2>Results</h2>
   <ul>
-    <li><span class="todo">TODO</span> A measurable result (numbers are best).</li>
-    <li><span class="todo">TODO</span> Another outcome or validation.</li>
+    <li>A 37.88 &times; 20.54&nbsp;mm robot with a 14.36 &times; 8.66&nbsp;mm workspace (65.6&nbsp;mm&sup2;), a workspace-to-footprint ratio of about 1&nbsp;:&nbsp;8.5.</li>
+    <li>Holds a 12.06 &times; 6.80&nbsp;mm workspace at 10&nbsp;Hz, and follows trajectories spanning the full workspace at 10&nbsp;Hz, better than simulation predicted.</li>
+    <li>Measured voltage-to-displacement behavior closely matched simulation, with small deviations from hysteresis in the actuators and flexible material.</li>
+    <li>No change in performance after a 10,000-cycle fatigue test.</li>
   </ul>
 
-  <h2>What I learned</h2>
-  <p><span class="todo">TODO</span> One or two takeaways.</p>
-
-  <!-- Gallery: add more photos by copying a <figure> block.
   <div class="gallery">
-    <figure><img src="../images/projects/millimeter-scale-robot-1.jpg" alt=""><figcaption>Caption</figcaption></figure>
+    <figure><img src="../images/projects/millimeter-scale-robot-design.jpg" alt="Design schematic of the parallel robot showing bimorphs, transmissions, flexures and end effector"><figcaption>Design: bimorphs (orange), flexures (black) and rigid links (white).</figcaption></figure>
+    <figure><img src="../images/projects/millimeter-scale-robot-cad.jpg" alt="CAD model of the final parallel robot"><figcaption>CAD model of the final robot.</figcaption></figure>
+    <figure class="wide"><img src="../images/projects/millimeter-scale-robot-trajectories.jpg" alt="Overlay of three trajectories traced by the robot: workspace trace, circle and letter Y"><figcaption>Traced trajectories: workspace outline, circle and the letter Y.</figcaption></figure>
   </div>
-  -->
+
+  <h2>What I learned</h2>
+  <p>At this scale, integration is the hardest part: small misalignments when bonding the actuators to the transmissions directly shrink the workspace.
+     The next steps I identified were adding sensors for feedback control at higher frequencies, compensating for hysteresis, and using multi-material or soluble-support printing to speed up each design cycle.</p>
+
+  <div class="pubs">
+    <h2>Publications</h2>
+    <ul>
+      <li>A. Tabak, <em>Design and Additive Manufacture of a High-Speed Piezoelectrically Actuated Compliant Mesoscale Parallel Robot</em>, M.Sc. thesis, York University, 2023.</li>
+      <li>A. Tabak and R. Orszulik, &ldquo;A monolithic flexible transmission for piezoelectric actuators,&rdquo; 2022 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM), pp. 138&ndash;143.</li>
+    </ul>
+  </div>
 
   <div class="next-prev">
     <a href="trajectory-generation-tools.html">&larr; Trajectory Generation Tools</a>
