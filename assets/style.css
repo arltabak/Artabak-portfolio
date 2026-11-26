@@ -225,3 +225,8 @@ html.lb-lock, html.lb-lock body { overflow: hidden; }
 .kicker { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
 .hero-pair video { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background: #1a1a1d; border-radius: var(--radius); border: 1px solid var(--line); display: block; }
 .card .thumb.contain { object-fit: contain; background: #fff; padding: 6px; }
+
+/* Home intro bylines */
+.hero .role { margin-bottom: 10px; }
+.hero .byline { font-weight: 600; color: var(--text); margin: 0 0 6px; letter-spacing: 0.01em; }
+.hero .where { color: var(--muted); margin: 0 0 26px; }
