@@ -5,22 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Flexible Linear-to-Rotary Transmission | Ariel Tabak</title>
 <meta name="description" content="Ariel Tabak, R&amp;D engineer specializing in injection molding simulation and structural/thermal FEA. Research, projects and notes.">
-<link rel="stylesheet" href="../assets/style.css?v=3">
+<link rel="stylesheet" href="../assets/style.css?v=4">
 </head>
 <body>
 <header class="site-header"><div class="wrap">
   <a class="brand" href="../index.html">Ariel Tabak</a>
   <nav class="nav">
-    <a href="../projects.html">Projects</a>
+    <a href="../work.html" aria-current="page">Work</a>
     <a href="../notes.html">Notes</a>
-    <a href="../research.html" aria-current="page">Research</a>
-    <a href="../clubs-coursework.html">Clubs &amp; Coursework</a>
     <a href="../index.html#about">About</a>
+    <a href="../Ariel_Tabak_Resume.pdf?v=2" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+    <a href="../index.html#contact">Contact</a>
   </nav>
 </div></header>
 <main class="wrap">
 <div class="project-head">
-  <a class="back" href="../research.html">&larr; Research</a>
+  <a class="back" href="../work.html#research">&larr; All work</a>
   <h1>Flexible Linear-to-Rotary Transmission</h1>
   <p class="summary">A 3D printed compliant mechanism that converts a piezoelectric actuator's sub-millimeter push into nearly 30&deg; of rotation, with no assembled joints.</p>
   <div class="meta">
@@ -40,10 +40,17 @@
 <article class="prose">
   <h2>Results</h2>
   <ul>
-    <li>Converted &plusmn;0.5625&nbsp;mm of linear input into up to about 29&deg; of rotation in each direction.</li>
+    <li>Converted a &plusmn;0.5625&nbsp;mm linear input from the test stage into up to about 29&deg; of rotation in each direction. (On the robot, each transmission is driven through &plusmn;0.45&nbsp;mm.)</li>
     <li>The multi-material design performed best: the 392&nbsp;&micro;m version came within 6&ndash;9% of simulation, compared with 23&ndash;29% for the all-flexible base.</li>
-    <li>Selected a 308&nbsp;&micro;m flexure thickness as the starting point for the robot.</li>
+    <li>Selected a 308&nbsp;&micro;m flexure thickness for the robot (see <a href="#thickness">why</a>).</li>
   </ul>
+
+  <h2 id="thickness">Choosing the flexure thickness</h2>
+  <p>I printed and tested three flexure thicknesses side by side. The 196&nbsp;&micro;m flexures were very hard to clean without damaging them.
+     The 392&nbsp;&micro;m version diverged strongly from its predicted rotation at positive displacements.
+     The 308&nbsp;&micro;m version reached a smaller peak rotation, but gave the most linear response of the three, so I used it for the robot.</p>
+  <p>The later multi-material redesign changed the picture: there, the 392&nbsp;&micro;m version matched simulation most closely (within 6&ndash;9%).
+     My thesis also notes that the gap between the two thicknesses would likely grow if the flexure offset were reduced, so the choice is worth revisiting in a future design iteration.</p>
 
   <h2>Motivation</h2>
   <p>Piezoelectric actuators are fast and precise, but they only move fractions of a millimeter. To power a small robot, that motion has to become large rotation, and gears or pinned linkages are hard to build at this size.
@@ -68,7 +75,7 @@
     <li><strong>Fast parameter sweeps:</strong> wrote a simplified 2D beam-element finite element model in MATLAB to sweep design parameters quickly, then confirmed the trends with 3D ABAQUS models.</li>
     <li><strong>Key finding:</strong> flexure thickness was the most critical parameter, followed by flexure length and the angle between flexures.</li>
     <li><strong>Prototypes:</strong> printed versions with 196, 308 and 392&nbsp;&micro;m flexures in flexible Agilus30 (PolyJet).</li>
-    <li><strong>Testing:</strong> drove each prototype from a micrometer stage across &plusmn;0.5625&nbsp;mm and measured rotation optically from overhead images in MATLAB, with under 1% measurement error.</li>
+    <li><strong>Testing:</strong> drove each prototype from a micrometer stage across a &plusmn;0.5625&nbsp;mm test range and measured rotation optically from overhead images in MATLAB, with under 1% measurement error.</li>
     <li><strong>Revision:</strong> redesigned as a multi-material part, with rigid VeroWhite encasing the flexible flexures to reduce the risk of material separation during cleaning, then retested on a motorized stage.</li>
   </ul>
 
@@ -109,12 +116,12 @@
 <footer class="site-footer"><div class="wrap">
   <span>© Ariel Tabak</span>
   <span class="links">
-    <a href="../Ariel_Tabak_Resume.pdf?v=2" target="_blank" rel="noopener">Resume</a>
+    <a href="../Ariel_Tabak_Resume.pdf?v=2" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
     <a href="mailto:arieltabak@gmail.com">Email</a>
     <a href="https://www.linkedin.com/in/ariel-tabak/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/arltabak" target="_blank" rel="noopener">GitHub</a>
   </span>
 </div></footer>
-<script src="../assets/lightbox.js?v=3" defer></script>
+<script src="../assets/lightbox.js?v=4" defer></script>
 </body>
 </html>

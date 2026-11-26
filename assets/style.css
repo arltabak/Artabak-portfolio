@@ -220,3 +220,8 @@ section { padding: 36px 0; }
 @keyframes lb-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes lb-pop { from { transform: scale(0.96); opacity: 0; } to { transform: none; opacity: 1; } }
 html.lb-lock, html.lb-lock body { overflow: hidden; }
+
+/* Small label above a card title (e.g. Research, Student team) */
+.kicker { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.hero-pair video { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background: #1a1a1d; border-radius: var(--radius); border: 1px solid var(--line); display: block; }
+.card .thumb.contain { object-fit: contain; background: #fff; padding: 6px; }

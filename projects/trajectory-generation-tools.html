@@ -5,22 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Trajectory Generation Tools | Ariel Tabak</title>
 <meta name="description" content="Ariel Tabak, R&amp;D engineer specializing in injection molding simulation and structural/thermal FEA. Research, projects and notes.">
-<link rel="stylesheet" href="../assets/style.css?v=3">
+<link rel="stylesheet" href="../assets/style.css?v=4">
 </head>
 <body>
 <header class="site-header"><div class="wrap">
   <a class="brand" href="../index.html">Ariel Tabak</a>
   <nav class="nav">
-    <a href="../projects.html">Projects</a>
+    <a href="../work.html" aria-current="page">Work</a>
     <a href="../notes.html">Notes</a>
-    <a href="../research.html" aria-current="page">Research</a>
-    <a href="../clubs-coursework.html">Clubs &amp; Coursework</a>
     <a href="../index.html#about">About</a>
+    <a href="../Ariel_Tabak_Resume.pdf?v=2" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+    <a href="../index.html#contact">Contact</a>
   </nav>
 </div></header>
 <main class="wrap">
 <div class="project-head">
-  <a class="back" href="../research.html">&larr; Research</a>
+  <a class="back" href="../work.html#research">&larr; All work</a>
   <h1>Trajectory Generation Tools</h1>
   <p class="summary">Two MATLAB tools I built to drive and test my millimeter-scale robot: one generates actuator voltage signals, the other turns desired end-effector paths into time-series inputs for MATLAB, Simulink and ABAQUS.</p>
   <div class="meta">
@@ -42,8 +42,10 @@
   <p>I used the tools to map the robot's workspace and to build the test trajectories (workspace trace, circle and the letter Y) in my thesis.</p>
 
   <h2>Motivation</h2>
-  <p>Testing the <a href="millimeter-scale-robot.html">piezoelectric parallel robot</a> meant generating many different input signals, both to learn how actuator voltages map to end-effector motion and to make the robot follow specific paths.
-     Rather than build each signal by hand, I wrote two MATLAB tools to define, check and export them.</p>
+  <p>Testing the <a href="millimeter-scale-robot.html">piezoelectric parallel robot</a> meant running many trajectories, and each one needed the exact voltages for both actuators at every point.
+     At first I built each trajectory by hand: I defined each segment, then looked up the required points on the input voltage grid for every displacement.
+     Changing a path was tedious, each trajectory was tied to one set of input voltages, and a new robot iteration meant repeating the whole process.
+     So I wrote two MATLAB tools to define the paths, check the inputs, and export signals for simulation and testing.</p>
 
   <h2>My role</h2>
   <p>I designed and built both tools in MATLAB and wrote their user manuals.</p>
@@ -89,12 +91,12 @@
 <footer class="site-footer"><div class="wrap">
   <span>© Ariel Tabak</span>
   <span class="links">
-    <a href="../Ariel_Tabak_Resume.pdf?v=2" target="_blank" rel="noopener">Resume</a>
+    <a href="../Ariel_Tabak_Resume.pdf?v=2" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
     <a href="mailto:arieltabak@gmail.com">Email</a>
     <a href="https://www.linkedin.com/in/ariel-tabak/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/arltabak" target="_blank" rel="noopener">GitHub</a>
   </span>
 </div></footer>
-<script src="../assets/lightbox.js?v=3" defer></script>
+<script src="../assets/lightbox.js?v=4" defer></script>
 </body>
 </html>

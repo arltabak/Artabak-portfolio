@@ -5,22 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>3D Printed Millimeter-scale Robot | Ariel Tabak</title>
 <meta name="description" content="Ariel Tabak, R&amp;D engineer specializing in injection molding simulation and structural/thermal FEA. Research, projects and notes.">
-<link rel="stylesheet" href="../assets/style.css?v=3">
+<link rel="stylesheet" href="../assets/style.css?v=4">
 </head>
 <body>
 <header class="site-header"><div class="wrap">
   <a class="brand" href="../index.html">Ariel Tabak</a>
   <nav class="nav">
-    <a href="../projects.html">Projects</a>
+    <a href="../work.html" aria-current="page">Work</a>
     <a href="../notes.html">Notes</a>
-    <a href="../research.html" aria-current="page">Research</a>
-    <a href="../clubs-coursework.html">Clubs &amp; Coursework</a>
     <a href="../index.html#about">About</a>
+    <a href="../Ariel_Tabak_Resume.pdf?v=2" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+    <a href="../index.html#contact">Contact</a>
   </nav>
 </div></header>
 <main class="wrap">
 <div class="project-head">
-  <a class="back" href="../research.html">&larr; Research</a>
+  <a class="back" href="../work.html#research">&larr; All work</a>
   <h1>3D Printed Millimeter-scale Robot</h1>
   <p class="summary">A small parallel robot, 3D printed with flexible joints instead of pins and bearings, that turns the tiny motion of two piezoelectric actuators into millimeter-scale movement and traces paths at up to 10&nbsp;Hz.</p>
   <div class="meta">
@@ -31,20 +31,30 @@
   <span class="tag">Robotics</span><span class="tag">3D printing</span><span class="tag">FEA (ABAQUS)</span><span class="tag">MATLAB / Simulink</span><span class="tag">Piezoelectrics</span>
 </div>
 
-<figure class="hero-fig">
-  <img class="hero-img" src="../images/projects/millimeter-scale-robot.jpg" alt="The 3D printed parallel robot next to a US penny for scale">
-  <figcaption>The printed parallel robot, next to a penny for scale.</figcaption>
-</figure>
+<div class="hero-pair">
+  <figure><img src="../images/projects/millimeter-scale-robot.jpg" alt="The 3D printed parallel robot next to a US penny for scale"><figcaption>The printed parallel robot, next to a penny for scale.</figcaption></figure>
+  <figure><video src="../images/projects/millimeter-scale-robot-circle.mp4" poster="../images/projects/millimeter-scale-robot-circle.jpg" autoplay muted loop playsinline aria-label="The robot tracing a circle"></video><figcaption>Tracing a circle at 2&nbsp;Hz (real speed).</figcaption></figure>
+</div>
 
 
 <article class="prose">
   <h2>Results</h2>
   <ul>
-    <li>A 37.88 &times; 20.54&nbsp;mm robot with a 14.36 &times; 8.66&nbsp;mm workspace (65.6&nbsp;mm&sup2;), a workspace-to-footprint ratio of about 1&nbsp;:&nbsp;8.5.</li>
+    <li>A 37.88 &times; 20.54&nbsp;mm robot whose irregular workspace spans 14.36 &times; 8.66&nbsp;mm (bounding dimensions) and covers 65.6&nbsp;mm&sup2;. That is about 1/8.5 of the area the robot itself occupies (557.6&nbsp;mm&sup2; of printed part, not its bounding rectangle).</li>
     <li>Holds a 12.06 &times; 6.80&nbsp;mm workspace at 10&nbsp;Hz, and follows trajectories spanning the full workspace at 10&nbsp;Hz, better than simulation predicted.</li>
     <li>Measured voltage-to-displacement behavior closely matched simulation, with small deviations from hysteresis in the actuators and flexible material.</li>
     <li>No change in performance after a 10,000-cycle fatigue test.</li>
   </ul>
+
+  <h2>Predicted vs. measured</h2>
+  <p>The first circle test used input voltages taken from the finite element model. The robot traced an ellipse instead: the model predicted a larger workspace than the real robot has, especially along the y-axis.
+     I rebuilt the inputs from the workspace grid measured on the robot itself, targeting a circle of 3.5&nbsp;mm radius. That version traced a clear circle and stayed stable at 10&nbsp;Hz, with only a slightly smaller path.</p>
+  <p><strong>Test conditions:</strong> both bimorphs driven between 0 and 148&nbsp;V through a high-voltage amplifier from Simulink and a Speedgoat real-time machine; end-effector motion tracked with a Chronos 2.1 high-speed camera and ProAnalyst; each trajectory run at 0.5, 2, 5 and 10&nbsp;Hz.
+     The remaining differences come mainly from hysteresis in the actuators and the flexible material.</p>
+  <div class="gallery">
+    <figure><img src="../images/projects/millimeter-scale-robot-circle-predicted.jpg" alt="Circle trajectory results using simulation-derived inputs, showing elliptical paths at 0.5 to 10 Hz over the workspace grid" loading="lazy"><figcaption>Inputs from the simulation: an ellipse, flattened in y.</figcaption></figure>
+    <figure><img src="../images/projects/millimeter-scale-robot-circle-measured.jpg" alt="Circle trajectory results using inputs from the measured workspace grid, showing near-circular paths at 0.5 to 10 Hz" loading="lazy"><figcaption>Inputs from the measured workspace grid: a 3.5&nbsp;mm-radius circle, stable at 10&nbsp;Hz.</figcaption></figure>
+  </div>
 
   <h2>Motivation</h2>
   <p>Small robots for tasks like pick-and-place and micro-positioning need precise, fast motion, but conventional robots rely on many assembled joints that are hard to build at the millimeter scale.
@@ -71,7 +81,7 @@
     <li><strong>Robot design:</strong> combined two 3R chains into a six-bar planar parallel robot, so two actuators control the end effector in X and Y.</li>
     <li><strong>Modeling:</strong> built a simplified kinematic model to find the parameters that maximize workspace, then a full ABAQUS model including the actuators and transmissions to predict movements, workspace and resonant frequencies.</li>
     <li><strong>Trajectory generation:</strong> mapped the workspace by sweeping a grid of input voltages, then built a transformation from desired end-effector positions to actuator voltages to drive paths such as a circle and the letter Y, using <a href="trajectory-generation-tools.html">MATLAB tools I wrote</a>.</li>
-    <li><strong>Fabrication:</strong> printed in flexible Agilus30 and rigid VeroWhite on an Objet Connex500 PolyJet printer, oriented so the critical flexures print with 28&nbsp;&micro;m accuracy through their thickness.</li>
+    <li><strong>Fabrication:</strong> printed in flexible Agilus30 and rigid VeroWhite on an Objet Connex500 PolyJet printer, oriented so the critical flexures are built up in 28&nbsp;&micro;m layers through their thickness.</li>
     <li><strong>Testing:</strong> drove the actuators from Simulink through a Speedgoat real-time machine and high-voltage amplifier, and tracked motion with a Chronos 2.1 high-speed camera and ProAnalyst.</li>
   </ul>
 
@@ -90,15 +100,12 @@
   <h2>In motion</h2>
   <div class="gallery three">
     <figure><video src="../images/projects/millimeter-scale-robot-trace.mp4" poster="../images/projects/millimeter-scale-robot-trace.jpg" autoplay muted loop playsinline aria-label="The robot tracing the outline of its workspace"></video><figcaption>Workspace trace at 0.5&nbsp;Hz (real speed).</figcaption></figure>
-    <figure><video src="../images/projects/millimeter-scale-robot-circle.mp4" poster="../images/projects/millimeter-scale-robot-circle.jpg" autoplay muted loop playsinline aria-label="The robot tracing a circle"></video><figcaption>Circle at 2&nbsp;Hz (real speed).</figcaption></figure>
     <figure><video src="../images/projects/millimeter-scale-robot-letter-y.mp4" poster="../images/projects/millimeter-scale-robot-letter-y.jpg" autoplay muted loop playsinline aria-label="The robot tracing the letter Y, slowed down"></video><figcaption>Letter Y at 10&nbsp;Hz, slowed to 0.1&times;.</figcaption></figure>
-  </div>
-  <div class="gallery">
     <figure><video src="../images/projects/millimeter-scale-robot-writing.mp4" poster="../images/projects/millimeter-scale-robot-writing.jpg" autoplay muted loop playsinline aria-label="The robot tracing letters and shapes"></video><figcaption>Tracing letters and shapes, with the end-effector path shown in red.</figcaption></figure>
   </div>
 
   <h2>What I learned</h2>
-  <p>At this scale, integration is the hardest part: small misalignments when bonding the actuators to the transmissions directly shrink the workspace.
+  <p>Small misalignments when bonding the actuators to the transmissions reduced the robot&rsquo;s workspace.
      The next steps I identified were adding sensors for feedback control at higher frequencies, compensating for hysteresis, and using multi-material or soluble-support printing to speed up each design cycle.</p>
 
   <div class="pubs">
@@ -119,12 +126,12 @@
 <footer class="site-footer"><div class="wrap">
   <span>© Ariel Tabak</span>
   <span class="links">
-    <a href="../Ariel_Tabak_Resume.pdf?v=2" target="_blank" rel="noopener">Resume</a>
+    <a href="../Ariel_Tabak_Resume.pdf?v=2" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
     <a href="mailto:arieltabak@gmail.com">Email</a>
     <a href="https://www.linkedin.com/in/ariel-tabak/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/arltabak" target="_blank" rel="noopener">GitHub</a>
   </span>
 </div></footer>
-<script src="../assets/lightbox.js?v=3" defer></script>
+<script src="../assets/lightbox.js?v=4" defer></script>
 </body>
 </html>

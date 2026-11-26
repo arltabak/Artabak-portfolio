@@ -6,15 +6,15 @@ Plain HTML + CSS, no build step.
 
 | Page | Contents |
 |---|---|
-| `index.html` | Home: intro, section overview, featured research, about, contact |
-| `research.html` | Master's and Bachelor's research |
-| `clubs-coursework.html` | Student club work and course projects |
-| `projects.html` | Personal projects: major projects (cards) and smaller projects (compact list) |
+| `index.html` | Home: intro, featured work, about, contact |
+| `work.html` | All projects, in sections: Research, Student team, Coursework, Personal projects |
 | `notes.html` | Freeform posts: thoughts, reviews, experiments |
+| `research.html`, `clubs-coursework.html`, `projects.html` | Redirects to sections of `work.html` (kept so old links work) |
 
 - `projects/*.html` — one page per project
 - `notes/_template.html` — copy this to start a new post
-- `assets/style.css` — all styling (colours and fonts are set at the top)
-- `images/projects/` — project photos (placeholders are `.svg`)
+- `assets/style.css` — all styling; `assets/lightbox.js` — tap-to-enlarge viewer
+- `images/projects/` — project photos, figures and clips
+- `Ariel_Tabak_Resume.pdf` — public résumé (no phone number)
 
-Anything marked **TODO** on the site still needs real content.
+After changing CSS/JS, bump the `?v=` number in the HTML links so browsers fetch the new copy.
