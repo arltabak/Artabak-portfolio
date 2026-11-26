@@ -232,3 +232,18 @@ html.lb-lock, html.lb-lock body { overflow: hidden; }
 .hero .where { color: var(--muted); margin: 0 0 26px; }
 .hero .byline { max-width: none; }
 .hero .byline { margin-bottom: 26px; }
+
+/* Earlier work: compact rows */
+.section-note { color: var(--muted); margin: -10px 0 16px; font-size: 0.95rem; }
+.minis { display: grid; gap: 10px; }
+.mini {
+  display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: center;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px; color: var(--text);
+}
+.mini:hover { text-decoration: none; border-color: var(--text); }
+.mini img { width: 96px; height: 72px; object-fit: contain; background: #fff; border-radius: 8px; }
+.mini-text { display: flex; flex-direction: column; gap: 2px; }
+.mini-title { font-weight: 600; }
+.mini-meta { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.mini-desc { color: var(--muted); font-size: 0.9rem; }
+.page-kicker { margin-top: 14px; }
