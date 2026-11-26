@@ -7,9 +7,9 @@ Plain HTML + CSS, no build step.
 | Page | Contents |
 |---|---|
 | `index.html` | Home: intro, featured work, about, contact |
-| `work.html` | All projects, in sections: Research, Student team, Coursework, Personal projects |
+| `projects.html` | All projects: Personal projects, Academic research, Student teams & coursework |
 | `notes.html` | Freeform posts: thoughts, reviews, experiments |
-| `research.html`, `clubs-coursework.html`, `projects.html` | Redirects to sections of `work.html` (kept so old links work) |
+| `work.html`, `research.html`, `clubs-coursework.html` | Redirects to `projects.html` (kept so old links work) |
 
 - `projects/*.html` — one page per project
 - `notes/_template.html` — copy this to start a new post
