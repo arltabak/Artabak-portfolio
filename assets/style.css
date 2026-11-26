@@ -231,3 +231,4 @@ html.lb-lock, html.lb-lock body { overflow: hidden; }
 .hero .byline { font-weight: 600; color: var(--text); margin: 0 0 6px; letter-spacing: 0.01em; }
 .hero .where { color: var(--muted); margin: 0 0 26px; }
 .hero .byline { max-width: none; }
+.hero .byline { margin-bottom: 26px; }
